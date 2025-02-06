@@ -1,0 +1,6 @@
+{
+    "threshold": 30,
+    "threshold_comment": "This is how sensitive the camera should be to movement",
+    "cooldown": 0.3,
+    "cooldown_comment": "How long (in seconds) each action should allow as a breather before registering more actions"
+}

@@ -1,0 +1,4 @@
+{
+    "webcam": "http://192.168.68.101:4747/video",
+    "webcam_comment": "This is your webcam number, or URL if using DroidCam"
+}

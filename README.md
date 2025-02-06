@@ -44,7 +44,7 @@ _Note: Only tested on Windows 11 using [DroidCam](https://droidcam.app/) as a We
 
 1. Clone or download the code onto your system
 1. Open the code in your text editor of choice
-1. Modify this line of code: `cap = cv2.VideoCapture("http://192.168.68.101:4747/video")`
+1. Modify `configs/computer_info.json` to fit your system
     - If using a webcam, specify a number, if DroidCam, web interface seems to work good, just use the correct local IP
 1. In the SAME directory, run `pdm install` in your terminal
 
@@ -73,6 +73,11 @@ As this project is still in development, here is my ever growing todo list:
 - [ ] Throw (regular)
 - [ ] Throw (ground)
 - [ ] Make software easy to use as a template for other games with minimal modification required
+- [x] Make software easy for user to configure
+- [ ] Fly Up/Down
+- [ ] Dash forward
+- [ ] Dash behind character
+- [ ] All Counters
 - [ ] A bunch of other stuffs
 
 ---
