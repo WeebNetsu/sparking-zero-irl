@@ -34,18 +34,17 @@ _Note: Only tested on Windows 11 using [DroidCam](https://droidcam.app/) as a We
 - [PDM](https://pdm-project.org/en/latest/) - Python package management done right
 - [VSCode](https://code.visualstudio.com/) - Or any text editor to edit the code
 - Decent Spec System, around the ballpark of:
-    - RAM: 16GB (minimum)
-    - GPU: GTX 1080 TI (recommended)
-    - CPU: Ryzen 7 5700X (recommended)
-    - Webcam, or [DroidCam](https://droidcam.app/) if you don't have a webcam
-
+  - RAM: 16GB (minimum)
+  - GPU: GTX 1080 TI (recommended)
+  - CPU: Ryzen 7 5700X (recommended)
+  - Webcam, or [DroidCam](https://droidcam.app/) if you don't have a webcam
 
 #### From Source
 
 1. Clone or download the code onto your system
 1. Open the code in your text editor of choice
 1. Modify `configs/computer_info.json` to fit your system
-    - If using a webcam, specify a number, if DroidCam, web interface seems to work good, just use the correct local IP
+   - If using a webcam, specify a number, if DroidCam, web interface seems to work good, just use the correct local IP
 1. In the SAME directory, run `pdm install` in your terminal
 
 ### Run
@@ -66,7 +65,7 @@ As this project is still in development, here is my ever growing todo list:
 - [ ] Skill 1
 - [ ] Skill 2
 - [ ] Skill 3 (super)
-- [ ] Recharge
+- [x] Recharge
 - [ ] Ability 1 (L2 + 0)
 - [ ] Ability 2 (L2 + up + 0)
 - [ ] Guard

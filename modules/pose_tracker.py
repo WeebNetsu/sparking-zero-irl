@@ -1,7 +1,10 @@
+import math
+
 import mediapipe as mp
 import numpy as np
 
 from modules.config_loader import ConfigLoader
+from modules.position import Position
 
 
 class PoseTracker:
@@ -17,9 +20,42 @@ class PoseTracker:
         )
         self.app_config = app_config
 
-    def is_punching(self, prev_pos, new_pos):
-        if prev_pos is None or new_pos is None:
+    def is_punching(self, prev_pos: Position, new_pos: Position):
+        if prev_pos.has_none_values() or new_pos.has_none_values():
             return False
 
-        movement = np.linalg.norm(np.array(new_pos) - np.array(prev_pos))
+        movement = np.linalg.norm(
+            np.array(new_pos.to_tuple()) - np.array(prev_pos.to_tuple())
+        )
         return movement > self.app_config.threshold
+
+    def is_recharging(
+        self,
+        left_wrist_pos: Position,
+        right_wrist_pos: Position,
+        left_hip_pos: Position,
+        right_hip_pos: Position,
+    ):
+        if (
+            left_wrist_pos.has_none_values()
+            or right_wrist_pos.has_none_values()
+            or left_hip_pos.has_none_values()
+            or right_hip_pos.has_none_values()
+        ):
+            return False
+
+        # Calculate Euclidean distances between wrist and hip positions
+        left_distance = math.dist(left_wrist_pos.to_tuple(), left_hip_pos.to_tuple())
+        right_distance = math.dist(right_wrist_pos.to_tuple(), right_hip_pos.to_tuple())
+
+        # print("left", left_distance)
+        # print("right", right_distance)
+
+        # Check if both distances are within the threshold
+        if left_distance <= 130 and right_distance <= 130:
+            return True
+
+        return False
+
+        # if left_wrist_pos[0]
+        # return movement > self.app_config.threshold

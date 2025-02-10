@@ -1,6 +1,6 @@
 import json
-from typing import Any, List
 from pathlib import Path
+from typing import Any, List
 
 
 class ConfigLoader:
@@ -14,6 +14,7 @@ class ConfigLoader:
         self.threshold: int = 30
         self.cooldown: float = 0.3
         self.webcam: int | str = 0
+        self.debug: bool = True
 
         for file_path in config_file_paths:
             if not Path(file_path).is_file():
@@ -50,3 +51,8 @@ class ConfigLoader:
             data = json_data["webcam"]
             if is_valid_type("webcam", data, int | str):
                 self.webcam = data
+
+        if "debug" in json_data:
+            data = json_data["debug"]
+            if is_valid_type("debug", data, bool):
+                self.debug = data
