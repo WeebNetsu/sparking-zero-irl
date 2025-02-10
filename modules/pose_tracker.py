@@ -48,14 +48,8 @@ class PoseTracker:
         left_distance = math.dist(left_wrist_pos.to_tuple(), left_hip_pos.to_tuple())
         right_distance = math.dist(right_wrist_pos.to_tuple(), right_hip_pos.to_tuple())
 
-        # print("left", left_distance)
-        # print("right", right_distance)
-
         # Check if both distances are within the threshold
         if left_distance <= 130 and right_distance <= 130:
             return True
 
         return False
-
-        # if left_wrist_pos[0]
-        # return movement > self.app_config.threshold

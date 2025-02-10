@@ -105,12 +105,18 @@ class App:
 
     def run(self):
         """Main loop to run the boxing detection app."""
+        frame_count = 0
+
         while self.cap.isOpened():
             success, frame = self.cap.read()
             if not success:
                 break
 
-            self.process_frame(frame)
+            frame_count += 1
+
+            # Only process every 2nd frame, thus brings a lot of performance improvements
+            if frame_count % 2 == 0:
+                self.process_frame(frame)
 
             cv2.imshow("Boxing Detection", frame)
 
