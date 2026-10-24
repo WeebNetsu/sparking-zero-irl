@@ -6,57 +6,51 @@ This software that translates body movements to Sparking Zero gameplay. This was
 
 ## Content
 
-- [The Goal](#the-goal)
-- [Note](#note)
 - [Running and Installing](#running-and-installing)
   - [Install](#install)
   - [Run](#run)
 - [Issues And Contributing](#issues-and-contributing)
 - [Todo](#todo)
 
-## The Goal
-
-I want to create software that can easily be used as a template to mod other games in the same way. This template should allow many other games to work with a webcam via passing input from movement into the game with minimum modifications required.
-
-## Note
-
-This software is still in early development, check the [change logs](./changelogs.md) for more information. This project contains the Zlib license, it is short and sweet, so give it a read. I welcome any help you want to offer.
-
 ## Running and Installing
 
-_Note: Only tested on Windows 11 using [DroidCam](https://droidcam.app/) as a Webcam._
+_Note: Only tested on Windows 11 using [DroidCam](https://droidcam.app/) as a webcam and on NixOS with an actual webcam.._
 
 ### Install
 
 #### PC Requirements
 
-- [Python](https://www.python.org/) - To run the project
+- [Python 3.12](https://www.python.org/) - To run the project
 - [PDM](https://pdm-project.org/en/latest/) - Python package management done right
-- [VSCode](https://code.visualstudio.com/) - Or any text editor to edit the code
-- Decent Spec System, around the ballpark of:
+- (Optional) [VSCode](https://code.visualstudio.com/) - Or any text editor to edit the code
+- Decent spec system that can run both Sparking Zero and this software at the same time, around the ballpark of:
   - RAM: 16GB (minimum)
-  - GPU: GTX 1080 TI (recommended)
-  - CPU: Ryzen 7 5700X (recommended)
-  - Webcam, or [DroidCam](https://droidcam.app/) if you don't have a webcam
+  - GPU: GTX 1080 TI (or equivalent, recommend at least 12GB vram)
+  - CPU: Ryzen 7 5700X
+  - Webcam or [DroidCam](https://droidcam.app/) if you don't have a webcam
+
+These specs are based off of my system, you may be able to run this on lower end systems.
 
 #### From Source
 
 1. Clone or download the code onto your system
 1. Open the code in your text editor of choice
 1. Modify `configs/computer_info.json` to fit your system
-   - If using a webcam, specify a number, if DroidCam, web interface seems to work good, just use the correct local IP
+   - If using a webcam, specify a number, if you only have 1 webcam, then `0` should work. If using DroidCam then the web interface seems to work good, just use the correct local IP
 1. In the SAME directory, run `pdm install` in your terminal
+1. (Optional) if on NixOs, run `nix-shell` to setup a working environment
 
 ### Run
 
 1. Open Sparking Zero
 1. Run the software `pdm run main.py`
+1. You have 5 seconds to make Sparking Zero the focused window before inputs starts getting captured
 
 ## Issues And Contributing
 
-This project does not have any official support forums or servers, so until then, feel free to use the issues tab.
+I am pretty busy so I would love help from the community.
 
-## Todo
+<!-- ## Todo
 
 As this project is still in development, here is my ever growing todo list:
 
@@ -77,7 +71,7 @@ As this project is still in development, here is my ever growing todo list:
 - [ ] Dash forward
 - [ ] Dash behind character
 - [ ] All Counters
-- [ ] A bunch of other stuffs
+- [ ] A bunch of other stuffs -->
 
 ---
 

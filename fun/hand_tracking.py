@@ -1,7 +1,8 @@
+import time  # framerate checking
 from typing import List
+
 import cv2
 import mediapipe as mp  # for hand tracking
-import time  # framerate checking
 
 
 class HandDetectorFindModel:
@@ -111,7 +112,7 @@ def main():
     detector = HandDetector()
 
     # get webcam
-    cap = cv2.VideoCapture("http://192.168.101.102:4747/video")
+    cap = cv2.VideoCapture(0)
 
     if not cap.isOpened():
         print("Error: Couldn't open webcam")
